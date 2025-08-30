@@ -41,15 +41,14 @@ pipeline {
 				withCredentials([string(credentialsId: 'sonar-lc', variable: 'sonarToken')]) {
 					withSonarQubeEnv('sonar) {
 
-					  sh '''
+					  sh  '''
 	                     ${SONAR_SCANNER_HOME}/bin/sonar-scanner.bat  \
 				         -Dsonar.projectKey=jenkins-lc  \
 	                     -Dsonar.sources=.   \
                          -Dsonar.host.url=http://localhost:9000   \
 						 -Dsonar.java.binaries=target/classes \
                          -Dsonar.token=$sonarToken
-									 
-		                    '''
+		                   '''
 
 					}
              }
