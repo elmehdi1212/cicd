@@ -39,7 +39,7 @@ pipeline {
             steps {
                 echo 'Running Static Code Analysis with SonarQube'
 				withCredentials([string(credentialsId: 'sonar-lc', variable: 'sonarToken')]) {
-					withSonarQubeEnv('sonar) {
+					withSonarQubeEnv('sonar') {
 
 					  sh  '''
 	                     ${SONAR_SCANNER_HOME}/bin/sonar-scanner.bat  \
