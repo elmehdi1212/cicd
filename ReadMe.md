@@ -21,7 +21,6 @@ docker network ls
 ```sh
 docker network create jenkins-java
 ```
-password=c72dbb4cef534beeb2abfc852fdadbd9
 ```sh
 docker run -d --name jenkins-dind \
 -p 8080:8080 \
