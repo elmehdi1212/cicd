@@ -42,7 +42,7 @@ pipeline {
 					withSonarQubeEnv('sonar') {
 
 					  sh  '''
-	                     ${SONAR_SCANNER_HOME}/bin/sonar-scanner.bat  \
+	                     ${SONAR_SCANNER_HOME}/bin/sonar-scanner  \
 				         -Dsonar.projectKey=jenkins-lc  \
 	                     -Dsonar.sources=.   \
                          -Dsonar.host.url=http://localhost:9000   \
