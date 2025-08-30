@@ -4,7 +4,7 @@ pipeline {
 		jdk 'java2107'
 		maven 'maven387'
 	}
-	environments{
+	environment{
       SONAR_SCANNER_HOME = tool 'sonar7'
 	}
     stages {
