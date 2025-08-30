@@ -4,6 +4,9 @@ pipeline {
 		jdk 'java2107'
 		maven 'maven387'
 	}
+	environments{
+      SONAR_SCANNER_HOME = tool 'sonar7'
+	}
     stages {
         stage('Initialize Pipeline'){
             steps {
@@ -35,6 +38,21 @@ pipeline {
         stage('SonarQube Analysis'){
             steps {
                 echo 'Running Static Code Analysis with SonarQube'
+				withCredentials([string(credentialsId: 'sonar-lc', variable: 'sonarToken')]) {
+					withSonarQubeEnv('sonar) {
+
+					  sh '''
+	                     ${SONAR_SCANNER_HOME}/bin/sonar-scanner.bat  \
+				         -Dsonar.projectKey=jenkins-lc  \
+	                     -Dsonar.sources=.   \
+                         -Dsonar.host.url=http://localhost:9000   \
+						 -Dsonar.java.binaries=target/classes \
+                         -Dsonar.token=$sonarToken
+									 
+		                    '''
+
+					}
+             }
 	
             }
         }
