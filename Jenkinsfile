@@ -15,6 +15,7 @@ pipeline {
         stage('Checkout GitHub Codes'){
             steps {
                 echo 'Checking out GitHub Codes ...'
+				checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-lc', url: 'https://github.com/elmehdi1212/cicd.git']])
 		    }
         }
         stage('Maven Build'){
