@@ -81,5 +81,13 @@ pipeline {
             }
         }
 
+	    stage('Authenticated with GCP, tag and push image to artifact registry'){
+
+			steps{
+				echo 'Authenticated with GCP, tag and push image to artifact registry'
+			}
+
+		}
+
 }
 }
