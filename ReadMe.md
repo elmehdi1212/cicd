@@ -344,5 +344,4 @@ Add webhook
 4. Stop and Delete Jenkins & SonarQube containers
 
 
-# LIKE, COMMENT, & SUBSCRIBE To iQuant on YouTube !!!
 
